@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Territory2 xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accountAccessLevel>Edit</accountAccessLevel>
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <name>EEMATerr</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <ruleAssociations>
+        <inherited>false</inherited>
+        <ruleName>EEMARule</ruleName>
+    </ruleAssociations>
+    <territory2Type>EMEA_Territory</territory2Type>
+</Territory2>

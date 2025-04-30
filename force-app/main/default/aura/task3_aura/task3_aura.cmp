@@ -1,0 +1,49 @@
+<aura:component controller="AccountAuraController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="accountList1" type="Account[]" />
+    <aura:attribute name="accountList2" type="Account[]" />
+    <aura:attribute name="selectedAccount1" type="Id" />
+    <aura:attribute name="selectedAccount2" type="Id" />
+    <aura:attribute name="contacts1" type="Contact[]" />
+    <aura:attribute name="contacts2" type="Contact[]" />
+    <aura:attribute name="contactCount1" type="Integer" default="0" />
+    <aura:attribute name="contactCount2" type="Integer" default="0" />
+    <aura:attribute name="searchKey1" type="String" default=""/>
+    <aura:attribute name="searchKey2" type="String" default=""/>
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="6">
+            <lightning:card title="Account Section 1">
+                <lightning:input aura:id="search1" type="search" label="Search Accounts" value="{!v.searchKey1}" onchange="{!c.searchAccounts1}" />
+                <lightning:combobox name="accountPicklist1"
+                                    label="Select Account"
+                                    options="{!v.accountList1}"
+                                    value="{!v.selectedAccount1}"
+                                    onchange="{!c.loadContacts1}" />
+                <div ondrop="{!c.handleDrop1}" ondragover="{!c.allowDrop}" class="contact-container">
+                    <p>Contact Count: {!v.contactCount1}</p>
+                    <aura:iteration items="{!v.contacts1}" var="contact">
+                        <p draggable="true" ondragstart="{!c.handleDrag}" data-id="{!contact.Id}">{!contact.Name}</p>
+                    </aura:iteration>
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="6">
+            <lightning:card title="Account Section 2">
+                <lightning:input aura:id="search2" type="search" label="Search Accounts" value="{!v.searchKey2}" onchange="{!c.searchAccounts2}" />
+                <lightning:combobox name="accountPicklist2"
+                                    label="Select Account"
+                                    options="{!v.accountList2}"
+                                    value="{!v.selectedAccount2}"
+                                    onchange="{!c.loadContacts2}" />
+                <div ondrop="{!c.handleDrop2}" ondragover="{!c.allowDrop}" class="contact-container" >
+                    <p>Contact Count: {!v.contactCount2}</p>
+                    <aura:iteration items="{!v.contacts2}" var="contact">
+                        <p draggable="true" ondragstart="{!c.handleDrag}" data-id="{!contact.Id}">{!contact.Name}</p>
+                    </aura:iteration>
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

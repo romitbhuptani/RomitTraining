@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+    <aura:attribute name="fields"
+                    type="String[]"
+                    default="['LastName' , 'Email' , 'Phone']"/>
+    <lightning:recordForm objectApiName="Contact"
+                          fields="{!v.fields}"   onsuccess="{!c.showSuccess}"/>
+</aura:component>

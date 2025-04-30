@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-p-around_medium">
+        <template if:true={isSection1Visible}>
+            <lightning-combobox
+                label="Select Object"
+                value={selectedObject}
+                placeholder="Select an Object"
+                options={objectOptions}
+                onchange={handleObjectChange}>
+            </lightning-combobox>
+
+            <template if:true={records.length}>
+                <h2>Records</h2>
+                <template for:each={records} for:item="record">
+                    <div key={record.Id}>
+                        <lightning-input
+                            type="checkbox"
+                            label={record.Name}
+                            value={record.Id}
+                            onchange={handleRecordSelection}>
+                        </lightning-input>
+                    </div>
+                </template>
+            </template>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Next" onclick={goToNextSection}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={isSection2Visible}>
+            <h2>Draft Email</h2>
+            <lightning-textarea
+                label="Email Content"
+                value={emailContent}
+                placeholder="Type your email here"
+                onchange={handleEmailChange}>
+            </lightning-textarea>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Previous" onclick={goToPreviousSection}></lightning-button>
+                <lightning-button label="Next" onclick={goToNextSection}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={isSection3Visible}>
+            <h2>Email Preview</h2>
+            <div class="slds-box slds-theme_default">
+                <p>{emailContent}</p>
+            </div>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Previous" onclick={goToPreviousSection}></lightning-button>
+                <lightning-button label="Send Email" onclick={sendEmail}></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

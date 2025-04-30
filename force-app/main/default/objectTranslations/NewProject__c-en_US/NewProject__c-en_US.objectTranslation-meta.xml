@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>NewProject</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>NewProjects</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Start Date Should be greater than end date --></errorMessage>
+        <name>EndGreater</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Progress should be less than or equal to 100. --></errorMessage>
+        <name>PercentGreater</name>
+    </validationRules>
+</CustomObjectTranslation>

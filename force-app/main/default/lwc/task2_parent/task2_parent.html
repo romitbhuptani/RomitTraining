@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-p-around_medium">
+        <h1 class="slds-text-heading_large">Image Uploader</h1>
+        <lightning-input type="file" label="Upload Image" accept=".jpg,.jpeg,.png" onchange={handleFileUpload}></lightning-input>
+        <template if:true={imageData}>
+            <c-task2_child image-data={imageData}></c-task2_child>
+        </template>
+    </div>
+</template>

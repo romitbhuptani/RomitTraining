@@ -1,0 +1,119 @@
+<template>
+    <div class="registration-container">
+        <div class="registration-box">
+            <h2>Community Portal Registration</h2>
+            <form onsubmit={handleRegister}>
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <lightning-combobox
+                        label="Select Role"
+                        value={selectedRole}
+                        options={roleOptions}
+                        onchange={handleRoleChange}
+                        required
+                    ></lightning-combobox>
+                </div>
+
+                <!-- Common Fields -->
+                <div class="form-group">
+                    <lightning-input
+                        label="First Name"
+                        value={firstName}
+                        onchange={handleInputChange}
+                        data-id="firstName"
+                        required
+                    ></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input
+                        label="Last Name"
+                        value={lastName}
+                        onchange={handleInputChange}
+                        data-id="lastName"
+                        required
+                    ></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onchange={handleInputChange}
+                        data-id="email"
+                        required
+                    ></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onchange={handleInputChange}
+                        data-id="password"
+                        required
+                    ></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input
+                        label="Confirm Password"
+                        type="password"
+                        value={confirmPassword}
+                        onchange={handleInputChange}
+                        data-id="confirmPassword"
+                        required
+                    ></lightning-input>
+                </div>
+
+                <!-- Teacher-Specific Fields -->
+                <template if:true={isTeacher}>
+                    <div class="form-group">
+                        <lightning-input
+                            label="Department"
+                            value={department}
+                            onchange={handleInputChange}
+                            data-id="department"
+                            required
+                        ></lightning-input>
+                    </div>
+                </template>
+
+                <!-- Student-Specific Fields -->
+                <template if:true={isStudent}>
+                    <div class="form-group">
+                        <lightning-input
+                           label="Grade Level"
+                            value={gradeLevel}
+                            onchange={handleInputChange}
+                            data-id="gradeLevel"
+                            required
+                        ></lightning-input>
+                    </div>
+                </template>
+
+                <!-- Success Message -->
+                <template if:true={success}>
+                    <div class="slds-text-color_success">{success}</div>
+                </template>
+
+                <!-- Error Message -->
+                <template if:true={error}>
+                    <div class="slds-text-color_error">{error}</div>
+                </template>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <lightning-button
+                        label="Register"
+                        variant="brand"
+                        type="submit"
+                    ></lightning-button>
+                </div>
+
+                <!-- Login Link -->
+                <div class="form-group login-link">
+                    <p>Already a member? <button type="button" class="slds-button slds-button_neutral" onclick={handleLoginRedirect}>Log in</button></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

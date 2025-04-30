@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationPhone</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+    LEN( AssistantPhone ) &lt;&gt; 10,
+    LEN( HomePhone ) &lt;&gt; 10,
+    LEN( MobilePhone ) &lt;&gt; 10,
+    LEN(  OtherPhone ) &lt;&gt; 10,
+    LEN( Phone ) &lt;&gt; 10
+
+)</errorConditionFormula>
+    <errorMessage>Phone numbers should be of length 10</errorMessage>
+</ValidationRule>

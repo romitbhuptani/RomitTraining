@@ -1,0 +1,11 @@
+<aura:component implements = "flexipage:availableForAllPageTypes">
+    <aura:attribute name="imageData" type="String" />
+    
+    <c:ImageUploaderChild onImageUpload="{!c.handleImageUpload}" />
+
+    <aura:if isTrue="{!not(empty(v.imageData))}">
+        <lightning:card title="Image Preview">
+            <img src="{!v.imageData}" style="max-width: 100%; height: auto;" />
+        </lightning:card>
+    </aura:if>
+</aura:component>

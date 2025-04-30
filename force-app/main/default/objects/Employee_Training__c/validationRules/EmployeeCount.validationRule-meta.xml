@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmployeeCount</fullName>
+    <active>true</active>
+    <errorConditionFormula>Employee_Count__c &lt;= 0</errorConditionFormula>
+    <errorMessage>Employee count must be at least one</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="PageNumber" type="integer" default="1"/>
+    <aura:attribute name="CurrentStep" type="String" default="'1'"/>
+    <div class="slds-box slds-theme-default">
+        <div class="slds-clearfix" >
+            <div class="slds-float_left">            
+                <lightning:button disabled="{!v.PageNumber == 1}" variant="brand" aura:id="prevPage" label="Prev" onclick="{!c.handlePrev}" />            
+            </div>
+            <div class="slds-float_right">
+                <lightning:button disabled="{!v.PageNumber == 3}" aura:id="nextPage" variant="brand" label="Next" onclick="{!c.handleNext}"/>
+            </div>
+            <div class="slds-p-top_x-small">
+            <lightning:progressIndicator currentStep="{!v.CurrentStep}" type="base" variant="base" hasError="false">
+                <lightning:progressStep label="Step 1" value="1" onclick="{!c.handleStep1}">
+                </lightning:progressStep>
+                <lightning:progressStep label="Step 2" value="2" onclick="{!c.handleStep2}" >
+                </lightning:progressStep>
+                <lightning:progressStep label="Step 3" value="3" onclick="{!c.handleStep3}">
+                </lightning:progressStep>
+            </lightning:progressIndicator>
+            </div>
+        </div>
+    </div>
+
+</aura:component>

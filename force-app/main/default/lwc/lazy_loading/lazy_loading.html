@@ -1,0 +1,16 @@
+<template>
+    <div style="height:500px">
+    <lightning-input type="search" label="Search" value={searchKey} onchange={handleSearchKeyChange}></lightning-input>
+    <lightning-datatable key-field="Id"
+            data={accounts}
+            columns={columns}
+            enable-infinite-loading
+            sorted-by={sortBy}
+            sorted-direction={sortDirection}
+            onsort={doSorting}
+            onloadmore={loadMoreData}
+            hide-checkbox-column="true"
+            show-row-number-column="true">
+    </lightning-datatable> 
+</div>
+</template>

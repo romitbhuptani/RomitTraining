@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+        <template if:true={showMessage}>
+        <p>{message}</p>
+    </template>
+        <div class="slds-p-around_medium">
+            
+            <template if:true={showText}>
+                <lightning-record-form
+                    object-api-name={objectApiName}
+                    fields={fields}
+                    record-id={recordId}
+                    onsuccess={handleSuccess}>
+                    <!-- <p>Name: {name}</p>
+            <p>Email: {email}</p>
+            <p>Phone: {phone}</p> -->
+                </lightning-record-form>
+            </template>
+        </div>
+    </lightning-card>
+</template>

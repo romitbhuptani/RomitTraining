@@ -1,0 +1,24 @@
+<apex:page standardController="Account" recordSetVar="accountList" extensions="demoController">
+    <apex:form >
+        <apex:pageBlock title="Select an Account">
+            <apex:pageBlockTable value="{!accountList}" var="acc">
+                <apex:column >
+                    <apex:commandLink value="{!acc.Name}" action="{!setAccount}" reRender="opportunitySection">
+                        <apex:param value="{!acc.Id}" name="accId" assignTo="{!accountId}" />
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:commandLink value="Previous" action="{!previous}"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <apex:commandLink value="Next" action="{!next}"  />
+        </apex:pageBlock>
+
+        <apex:pageBlock id="opportunitySection" title="Related Opportunities" rendered="{!accountId != null}">
+            <apex:pageBlockTable value="{!opps}" var="opp">
+                <apex:column >
+                    <apex:outputLink value="/{!opp.Id}">{!opp.Name}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>	
+</apex:page>

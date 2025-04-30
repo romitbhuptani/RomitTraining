@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isBirthday__c</fullName>
+    <formula>IF(
+                        AND( DAY( TODAY() ) = DAY( Birthdate  ),
+                                   MONTH(TODAY() ) = MONTH( Birthdate )), TRUE, FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>isBirthday</label>
+    <type>Checkbox</type>
+</CustomField>

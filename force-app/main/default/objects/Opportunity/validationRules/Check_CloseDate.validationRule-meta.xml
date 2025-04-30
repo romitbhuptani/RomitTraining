@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_CloseDate</fullName>
+    <active>false</active>
+    <errorConditionFormula>CloseDate  -  TODAY() &lt; 5</errorConditionFormula>
+    <errorMessage>the gap between today&apos;s date and close date should be greater than 5</errorMessage>
+</ValidationRule>

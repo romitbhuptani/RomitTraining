@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Training Type --></label>
+    <name>Training_Type__c</name>
+    <picklistValues>
+        <masterLabel>Compilance</masterLabel>
+        <translation><!-- Compilance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Management</masterLabel>
+        <translation><!-- Management --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Soft Skills</masterLabel>
+        <translation><!-- Soft Skills --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Technical</masterLabel>
+        <translation><!-- Technical --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

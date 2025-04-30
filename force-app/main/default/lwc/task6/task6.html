@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-p-around_medium">
+        <lightning-input 
+            type="text" 
+            label="Search Term" 
+            value={searchTerm} 
+            placeholder="Enter search term" 
+            onchange={handleSearchTermChange}>
+        </lightning-input>
+
+        <lightning-dual-listbox
+            label="Select Objects"
+            name="objectList"
+            source-label="Available Objects"
+            selected-label="Selected Objects"
+            options={objectOptions}
+            value={selectedObjects}
+            onchange={handleObjectSelectionChange}>
+        </lightning-dual-listbox>
+        <br>
+        <lightning-button 
+            label="Search" 
+            variant="brand" 
+            class="slds-m-top_medium" 
+            onclick={handleSearchClick}>
+        </lightning-button>
+
+        <template if:true={results}>
+            <template for:each={results} for:item="result">
+                <div key={result.objectName} class="slds-m-top_medium">
+                    <h2>{result.objectName}</h2>
+                    <template if:true={result.records}>
+                        <ul class="slds-theme_default">
+                            <template for:each={result.records} for:item="record">
+                                <li key={record.Id}>
+                                    {record.Name}
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                    
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

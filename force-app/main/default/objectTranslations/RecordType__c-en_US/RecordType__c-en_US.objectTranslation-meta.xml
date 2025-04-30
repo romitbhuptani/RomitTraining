@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RecordType</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RecordTypes</value>
+    </caseValues>
+    <recordTypes>
+        <label><!-- Type A Record --></label>
+        <name>Type_A_Record</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Type B Record --></label>
+        <name>Type_B_Record</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

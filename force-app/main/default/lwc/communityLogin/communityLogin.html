@@ -1,0 +1,45 @@
+<template>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Community Portal Login</h2>
+            <form onsubmit={handleLogin}>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="slds-input"
+                        value={email}
+                        onchange={handleInputChange}
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="slds-input"
+                        value={password}
+                        onchange={handleInputChange}
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="slds-button slds-button_brand">Login</button>
+                </div>
+                <div class="form-group forgot-password-link">
+                    <p><button type="button" class="slds-button slds-button_neutral" onclick={handleForgotPassword}>Forgot Password?</button></p>
+                </div>
+                <div class="form-group signup-link">
+                    <p>Not a member? <button type="button" class="slds-button slds-button_neutral" onclick={handleSignUp}>Sign up</button></p>
+                </div>
+            </form>
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+        </div>
+    </div>
+</template>

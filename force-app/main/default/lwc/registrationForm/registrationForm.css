@@ -1,0 +1,48 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f9;
+}
+
+.registration-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.registration-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group lightning-combobox,
+.form-group lightning-input {
+    width: 100%;
+}
+
+.slds-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+.login-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.login-link p {
+    margin: 0;
+    font-size: 0.9rem;
+}

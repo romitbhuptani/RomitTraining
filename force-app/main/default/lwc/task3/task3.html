@@ -1,0 +1,31 @@
+<template>
+    <div>
+        
+        <lightning-file-upload
+            label="Upload Files"
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+        </lightning-file-upload>
+
+        <template if:true={files.length}>
+            <div class="slds-theme_default">
+                <template for:each={paginatedFiles} for:item="file">
+                    <div key={file.Id} class="file-item slds-m-around_large">
+                        <a href={file.ContentDocumentLink} target="_blank">{file.Title}</a>
+                    </div>
+                </template>
+
+                <div>
+                    <lightning-button label="Previous" onclick={handlePrevious} disabled={ifFirstPage}></lightning-button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lightning-button label="Next" onclick={handleNext} disabled={ifLastPage}></lightning-button>
+                </div>
+            </div>
+        </template>
+        <template if:false={files.length}>
+            <p>No files uploaded yet.</p>
+        </template>
+    </div>
+</template>

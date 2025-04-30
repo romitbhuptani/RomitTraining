@@ -1,0 +1,7 @@
+<template>
+    <select class="slds-m-around_medium slds-theme_default" onchange={handleAccountChange}>
+        <template for:each={accounts.data} for:item="acc">
+            <option key={acc.Id} label={acc.Name} value={acc.Id}></option>
+        </template>
+    </select>
+</template>

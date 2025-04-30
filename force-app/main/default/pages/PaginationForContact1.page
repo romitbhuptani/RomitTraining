@@ -1,0 +1,15 @@
+<apex:page standardController="Contact" recordSetVar="contactList" extensions="ControllerForContact">
+    <apex:form >
+    <apex:pageBlock title="Viewing Contacts">
+        
+            <apex:pageBlockSection >
+                    <apex:pageBlockTable var="con" value="{!contactList}">
+                     <apex:column >{!con.name}</apex:column>
+                     </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        <apex:commandLink value="Previous" action="{!previous}"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <apex:commandLink value="Next" action="{!next}"/>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

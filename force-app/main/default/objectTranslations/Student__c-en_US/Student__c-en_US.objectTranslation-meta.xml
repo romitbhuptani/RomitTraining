@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Student</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Students</value>
+    </caseValues>
+    <recordTypes>
+        <description><!-- For issues/bugs --></description>
+        <label><!-- Problem --></label>
+        <name>Problem</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Questionss --></description>
+        <label><!-- Question --></label>
+        <name>Question</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

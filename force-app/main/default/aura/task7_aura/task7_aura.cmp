@@ -1,0 +1,24 @@
+<aura:component controller="AccountDataWrapperChild" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="accountList" type="Account[]" />
+    <aura:attribute name="selectedAccount" type="Id" />
+    <aura:attribute name="contacts" type="Contact[]" />
+    <aura:attribute name="opportunities" type="Opportunity[]" />
+    <lightning:card title="Account Section">
+            <lightning:combobox name="accountPicklist"
+                                label="Select Account"
+                                options="{!v.accountList}"
+                                value="{!v.selectedAccount}"
+                                onchange="{!c.loadContactsAndOpportunities}" />
+                <h2>Contacts</h2>
+                <aura:iteration items="{!v.contacts}" var="contact">
+                    <p>{!contact.Name}</p>
+                </aura:iteration>
+                <br/>
+                <h2>Opportunities</h2>
+                <aura:iteration items="{!v.opportunities}" var="opportunity">
+                    <p>{!opportunity.Name}</p>
+                </aura:iteration>
+    </lightning:card>
+
+</aura:component>

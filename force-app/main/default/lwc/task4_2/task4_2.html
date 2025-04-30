@@ -1,0 +1,27 @@
+<template>
+    <ul class="slds-m-around_medium slds-theme_default">
+        <h2>Related Opportunities</h2>
+        <template if:true={opportunities.data}>
+            <template for:each={opportunities.data} for:item="opp">
+                <li key={opp.Id}>{opp.Name}</li>
+                <br key={opp.Id}>
+            </template>
+        </template>
+        <template if:true={opportunities.error}>
+            <p>Error loading opportunities.</p>
+        </template>
+    </ul>
+
+    <ul class="slds-m-around_medium slds-theme_default">
+        <h2>Related Contacts</h2>
+        <template if:true={contacts.data}>
+            <template for:each={contacts.data} for:item="con">
+                <li key={con.Id}>{con.Name}</li>
+                <br key={con.Id}>
+            </template>
+        </template>
+        <template if:true={contacts.error}>
+            <p>Error loading contacts.</p>
+        </template>
+    </ul>
+</template>

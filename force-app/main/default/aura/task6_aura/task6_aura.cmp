@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="fontColor" type="string" default="blue" />
+    <aura:attribute name="fontSize" type="string" default="120px" />
+    <aura:attribute name="imageUrl" type="string" default=""/>
+    <aura:attribute name="description" type="string" default=""/>
+    <aura:attribute name="backgroundColor" type="string" default="white"/>
+    <lightning:card>
+        <lightning:input label="Image Url" value="{!v.imageUrl}" onchange="{!c.handleImageChange}"/>
+        <lightning:input label="Background Color" value="{!v.backgroundColor}" onchange="{!c.handleBackgroundChange}"/>
+        <lightning:input label="Description" value="{!v.description}" onchange="{!c.handleDescriptionChange}"/>
+        <lightning:input label="Font Color" value="{!v.fontColor}" onchange="{!c.handleFontColorChange}"/>
+        <lightning:input label="Font size" value="{!v.fontSize}" onchange="{!c.handleFontSizeChange}"/>
+        <aura:html tag="style">
+            
+            .testDiv{
+                background-color: {!v.backgroundColor};
+                color: {!v.fontColor};
+                font-size: {!v.fontSize};
+            }
+        </aura:html>
+        <div class="testDiv">
+            <aura:html aura:id="imgDiv" tag="img"/>
+            <p >{!v.description}</p>
+        </div>
+    </lightning:card>
+</aura:component>
