@@ -55,7 +55,7 @@ public without sharing class CommunityForgotPasswordController {
             emailBody = emailBody.replace('{LastName}', user.Last_Name__c);
             System.debug('Email Body: ' + emailBody);
             mail.setPlainTextBody(emailBody);
-            System.debug('Mail Body: ' + mail.getPlainTextBody());
+
             // Send email
             Messaging.SendEmailResult[] results = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
             System.debug('Email send result: ' + results[0]);
