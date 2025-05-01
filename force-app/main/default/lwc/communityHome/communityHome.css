@@ -1,0 +1,16 @@
+.home-container {
+    padding: 1rem;
+    background: #f4f4f4;
+    min-height: 85vh;
+}
+
+.home-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slds-text-heading_medium {
+    color: #1a1a1a;
+}

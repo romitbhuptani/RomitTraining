@@ -24,6 +24,11 @@ public without sharing class CommunityLoginController {
                 return JSON.serialize(new LoginResult(false, 'Invalid password.'));
             }
 
+            // Validate Role__c
+            if (String.isBlank(user.Role__c) || !new Set<String>{'Teacher', 'Student'}.contains(user.Role__c)) {
+                return JSON.serialize(new LoginResult(false, 'Invalid user role.'));
+            }
+
             // Successful login
             return JSON.serialize(new LoginResult(true, 'Login successful.', user.Role__c));
         } catch (Exception e) {

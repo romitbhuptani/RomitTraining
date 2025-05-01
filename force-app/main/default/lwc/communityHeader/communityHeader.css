@@ -1,0 +1,54 @@
+.header-container {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.slds-text-heading_medium {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.slds-button {
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0.5rem;
+    }
+
+    .slds-text-heading_medium {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .slds-m-horizontal_small {
+        margin: 0.25rem 0;
+    }
+}

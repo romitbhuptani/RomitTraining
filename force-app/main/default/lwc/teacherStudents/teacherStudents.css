@@ -1,0 +1,9 @@
+.teacher-students-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+:host {
+    display: block;
+    padding: 1rem;
+}

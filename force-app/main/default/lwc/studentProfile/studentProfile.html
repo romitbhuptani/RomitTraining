@@ -1,0 +1,42 @@
+<template>
+    <div class="profile-container">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+        <template if:false={isLoading}>
+            <template if:false={isEditing}>
+                <h2 class="slds-text-heading_small">My Profile</h2>
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label">First Name:</dt>
+                    <dd class="slds-item_detail">{profile.First_Name__c}</dd>
+                    <dt class="slds-item_label">Last Name:</dt>
+                    <dd class="slds-item_detail">{profile.Last_Name__c}</dd>
+                    <dt class="slds-item_label">Email:</dt>
+                    <dd class="slds-item_detail">{profile.Email__c}</dd>
+                    <dt class="slds-item_label">Grade Level:</dt>
+                    <dd class="slds-item_detail">{profile.Grade_Level__c}</dd>
+                </dl>
+                <lightning-button label="Edit Profile" variant="brand" onclick={handleEdit}></lightning-button>
+            </template>
+            <template if:true={isEditing}>
+                <h2 class="slds-text-heading_small">Edit Profile</h2>
+                <form onsubmit={handleSave}>
+                    <lightning-input label="First Name" value={form.First_Name__c} onchange={handleInputChange} data-id="First_Name__c" required></lightning-input>
+                    <lightning-input label="Last Name" value={form.Last_Name__c} onchange={handleInputChange} data-id="Last_Name__c" required></lightning-input>
+                    <lightning-input label="Email" type="email" value={form.Email__c} onchange={handleInputChange} data-id="Email__c" required></lightning-input>
+                    <lightning-input label="Grade Level" value={form.Grade_Level__c} onchange={handleInputChange} data-id="Grade_Level__c" required></lightning-input>
+                    <div class="slds-m-top_medium">
+                        <lightning-button label="Save" variant="brand" type="submit"></lightning-button>
+                        <lightning-button label="Cancel" variant="neutral" onclick={handleCancel} class="slds-m-left_small"></lightning-button>
+                    </div>
+                </form>
+            </template>
+            <template if:true={success}>
+                <div class="slds-text-color_success">{success}</div>
+            </template>
+        </template>
+    </div>
+</template>

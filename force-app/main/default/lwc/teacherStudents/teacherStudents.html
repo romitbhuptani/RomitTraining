@@ -1,0 +1,31 @@
+<template>
+    <div class="students-container">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+        <template if:false={isLoading}>
+            <template if:false={showDetail}>
+                <template if:true={hasStudents}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={students}
+                        columns={columns}
+                        onrowaction={handleRowAction}
+                        hide-checkbox-column
+                    ></lightning-datatable>
+                </template>
+                <template if:false={hasStudents}>
+                    <div class="slds-text-align_center slds-text-body_regular slds-text-color_default">
+                        No students under your guidance.
+                    </div>
+                </template>
+            </template>
+            <template if:true={showDetail}>
+                <c-student-detail student-id={selectedStudentId} email={email} onback={handleBack}></c-student-detail>
+            </template>
+        </template>
+    </div>
+</template>

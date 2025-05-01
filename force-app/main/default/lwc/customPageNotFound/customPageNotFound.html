@@ -1,0 +1,44 @@
+<template>
+    <div class="not-found-container">
+        <div class="not-found-card">
+            <div class="header">
+                <h1 class="slds-text-heading_large">404 - Lost in the Cosmos</h1>
+            </div>
+            <div class="content">
+                <img
+                    src={astronautImage}
+                    alt="Lost astronaut floating in space"
+                    class="astronaut-image"
+                    aria-label="Lost astronaut illustration"
+                />
+                <p class="slds-text-body_regular message">
+                    Oops! It looks like you've drifted into uncharted space. The page you're looking for doesn't exist or has been sucked into a black hole.
+                </p>
+            </div>
+            <div class="navigation">
+                <lightning-button
+                    label="Return to Home"
+                    variant="brand"
+                    onclick={navigateToHome}
+                    class="slds-m-right_small"
+                    title="Go to the home page"
+                ></lightning-button>
+                <lightning-button
+                    label="Log In"
+                    variant="neutral"
+                    onclick={navigateToLogin}
+                    class="slds-m-right_small"
+                    title="Go to the login page"
+                ></lightning-button>
+                <lightning-button
+                    label="Sign Up"
+                    variant="neutral"
+                    onclick={navigateToSignUp}
+                    class="slds-m-right_small"
+                    title="Go to the sign-up page"
+                ></lightning-button>
+               
+            </div>
+        </div>
+    </div>
+</template>

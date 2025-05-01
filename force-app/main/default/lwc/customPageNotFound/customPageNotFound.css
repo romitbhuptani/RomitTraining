@@ -1,0 +1,92 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 84vh;
+    background: linear-gradient(to bottom, #0a1c3a, #1e3a6d);
+    background-image: url('https://img.freepik.com/free-vector/starry-night-sky_1048-117.jpg');
+    background-size: cover;
+    padding: 1rem;
+}
+
+.not-found-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 1rem;
+}
+
+.slds-text-heading_large {
+    color: #1a1a1a;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.content {
+    margin-bottom: 1.5rem;
+}
+
+.astronaut-image {
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.message {
+    color: #333;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.slds-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Floating animation for astronaut */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .not-found-card {
+        padding: 1rem;
+    }
+
+    .slds-text-heading_large {
+        font-size: 1.5rem;
+    }
+
+    .astronaut-image {
+        width: 120px;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+}

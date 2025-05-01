@@ -25,13 +25,12 @@ export default class CommunityLogin extends NavigationMixin(LightningElement) {
             const loginResult = JSON.parse(result);
 
             if (loginResult.success) {
+                // Store email and role in sessionStorage for home page
+                sessionStorage.setItem('loggedInEmail', this.email);
+                sessionStorage.setItem('userRole', loginResult.role); // Store role
+
                 // Redirect to the Community Portal home page
-                this[NavigationMixin.Navigate]({
-                    type: 'standard__webPage',
-                    attributes: {
-                        url: '/' // Standard home page URL
-                    }
-                });
+                window.location.href = '/portal';
             } else {
                 this.errorMessage = loginResult.message;
             }

@@ -117,17 +117,12 @@ export default class RegistrationForm extends NavigationMixin(LightningElement) 
 
         try {
             const result = await registerUser({ userData: JSON.stringify(userData) });
-            this.success = 'Registration successful! Redirecting to home page...';
+            this.success = 'Registration successful! Redirecting to login page...';
             this.resetForm();
 
             // Redirect to home page after a brief delay to show success message
             setTimeout(() => {
-                this[NavigationMixin.Navigate]({
-                    type: 'standard__webPage',
-                    attributes: {
-                        url: '/d' // Adjust to your Community home page URL (e.g., '/s/home')
-                    }
-                });
+                this.handleLoginRedirect();
             }, 2000); // 2-second delay for user to see success message
         } catch (error) {
             this.error = error.body.message || 'An error occurred during registration.';

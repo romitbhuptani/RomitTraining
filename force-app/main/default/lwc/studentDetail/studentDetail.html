@@ -1,0 +1,54 @@
+<template>
+    <div class="detail-container">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+        <template if:false={isLoading}>
+            <template if:true={student.First_Name__c}>
+                <lightning-button label="Back" variant="neutral" onclick={handleBack} class="slds-m-bottom_medium"></lightning-button>
+                <h2 class="slds-text-heading_small">Student Details</h2>
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label">First Name:</dt>
+                    <dd class="slds-item_detail">{student.First_Name__c}</dd>
+                    <dt class="slds-item_label">Last Name:</dt>
+                    <dd class="slds-item_detail">{student.Last_Name__c}</dd>
+                    <dt class="slds-item_label">Email:</dt>
+                    <dd class="slds-item_detail">{student.Email__c}</dd>
+                    <dt class="slds-item_label">Grade Level:</dt>
+                    <dd class="slds-item_detail">{student.Grade_Level__c}</dd>
+                    <dt class="slds-item_label">Teacher:</dt>
+                    <dd class="slds-item_detail">{student.Teacher__r.First_Name__c} {student.Teacher__r.Last_Name__c}</dd>
+                </dl>
+                <lightning-button label="Provide Feedback" variant="brand" onclick={handleFeedback} class="slds-m-top_medium"></lightning-button>
+                <template if:true={showFeedback}>
+                    <div class="slds-m-top_medium">
+                        <h3 class="slds-text-heading_small">Feedback</h3>
+                        <lightning-radio-group
+                            label="Select Emoji"
+                            options={emojiOptions}
+                            value={feedback.emoji}
+                            onchange={handleEmojiChange}
+                            required
+                        ></lightning-radio-group>
+                        <lightning-textarea
+                            label="Comment"
+                            value={feedback.comment}
+                            onchange={handleCommentChange}
+                            maxlength="1000"
+                        ></lightning-textarea>
+                        <div class="slds-m-top_medium">
+                            <lightning-button label="Submit Feedback" variant="brand" onclick={handleSubmitFeedback}></lightning-button>
+                            <lightning-button label="Cancel" variant="neutral" onclick={handleCancelFeedback} class="slds-m-left_small"></lightning-button>
+                        </div>
+                    </div>
+                </template>
+                <template if:true={success}>
+                    <div class="slds-text-color_success">{success}</div>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>

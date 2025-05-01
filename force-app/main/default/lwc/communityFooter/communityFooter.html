@@ -1,0 +1,25 @@
+<template>
+    <template if:false={isExcludedPage}>
+        <footer class="footer-container" role="contentinfo">
+            <div class="slds-grid slds-wrap slds-align_absolute-center">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <p class="slds-text-body_regular">© 2025 Teacher Student Portal. All rights reserved.</p>
+                    <p class="slds-text-body_regular">Contact: <a href="mailto:support@teacherstudentportal.com" aria-label="Email support">support@teacherstudentportal.com</a></p>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <ul class="slds-list_horizontal footer-links">
+                        <li class="slds-m-horizontal_small">
+                            <a href="#" onclick={navigateToHome} aria-label="Go to Home">Home</a>
+                        </li>
+                        <li class="slds-m-horizontal_small">
+                            <a href="#" onclick={navigateToResetPassword} aria-label="Go to Reset Password">Reset Password</a>
+                        </li>
+                        <li class="slds-m-horizontal_small">
+                            <a href="#" onclick={navigateToForgotPassword} aria-label="Go to Forgot Password">Forgot Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </template>
+</template>

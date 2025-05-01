@@ -1,0 +1,11 @@
+.profile-container {
+    padding: 1rem;
+}
+
+.slds-text-heading_small {
+    margin-bottom: 1rem;
+}
+
+.slds-list_horizontal dt, .slds-list_horizontal dd {
+    padding: 0.5rem;
+}

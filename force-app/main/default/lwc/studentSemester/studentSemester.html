@@ -1,0 +1,19 @@
+<template>
+    <div class="semester-container">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+        <template if:false={isLoading}>
+            <h2 class="slds-text-heading_small">Class Semester: Spring 2025</h2>
+            <lightning-datatable
+                key-field="Id"
+                data={subjects}
+                columns={columns}
+                hide-checkbox-column
+            ></lightning-datatable>
+        </template>
+    </div>
+</template>

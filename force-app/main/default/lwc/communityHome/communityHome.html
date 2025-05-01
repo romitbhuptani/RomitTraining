@@ -1,0 +1,41 @@
+<template>
+    <div class="home-container">
+        <lightning-card class="home-card">
+            <div slot="title">
+                <h1 class="slds-text-heading_medium">Teacher Student Portal</h1>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">{error}</div>
+            </template>
+            <template if:false={isLoading}>
+                <lightning-tabset if:true={isTeacher}>
+                    <lightning-tab label="My Profile" value="teacherProfile">
+                        <div class="slds-p-around_medium">
+                            <c-teacher-profile email={email}></c-teacher-profile>
+                        </div>
+                    </lightning-tab>
+                    <lightning-tab label="Students" value="students">
+                        <div class="slds-p-around_medium">
+                            <c-teacher-students email={email} onstudentselect={handleStudentSelect}></c-teacher-students>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+                <lightning-tabset if:true={isStudent}>
+                    <lightning-tab label="My Profile" value="studentProfile">
+                        <div class="slds-p-around_medium">
+                            <c-student-profile email={email}></c-student-profile>
+                        </div>
+                    </lightning-tab>
+                    <lightning-tab label="Class Semester" value="classSemester">
+                        <div class="slds-p-around_medium">
+                            <c-student-semester></c-student-semester>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+            </template>
+        </lightning-card>
+    </div>
+</template>
