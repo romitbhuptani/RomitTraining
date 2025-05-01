@@ -7,7 +7,7 @@ export default class WelcomeMessage extends LightningElement {
 
     connectedCallback() {
         // Listen for welcome event from communityHeader
-        this.template.addEventListener('welcome', this.handleWelcomeEvent.bind(this));
+        document.addEventListener('welcome', this.handleWelcomeEvent.bind(this));
     }
 
     handleWelcomeEvent(event) {
@@ -16,20 +16,14 @@ export default class WelcomeMessage extends LightningElement {
             return;
         }
 
-        // Set email and role from event
-        this.email = event.detail.email;
-        this.role = event.detail.role;
+            this.email = sessionStorage.getItem('loggedInEmail');
+            this.role = sessionStorage.getItem('userRole');
 
-        // Show modal if valid role
-        if (this.role === 'Teacher' || this.role === 'Student') {
-            this.showModal = true;
-            sessionStorage.setItem('hasSeenWelcome', 'true');
+            if (this.role === 'Teacher' || this.role === 'Student') {
+                this.showModal = true;
+                sessionStorage.setItem('hasSeenWelcome', 'true');
 
-            // Auto-close after 5 seconds
-            setTimeout(() => {
-                this.closeModal();
-            }, 5000);
-        }
+            }
     }
 
     closeModal() {

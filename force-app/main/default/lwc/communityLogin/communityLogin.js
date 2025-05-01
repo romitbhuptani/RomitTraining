@@ -28,6 +28,7 @@ export default class CommunityLogin extends NavigationMixin(LightningElement) {
                 // Store email and role in sessionStorage for home page
                 sessionStorage.setItem('loggedInEmail', this.email);
                 sessionStorage.setItem('userRole', loginResult.role); // Store role
+                sessionStorage.setItem('hasSeenWelcome', 'false'); // Reset welcome message flag
 
                 // Redirect to the Community Portal home page
                 window.location.href = '/portal';

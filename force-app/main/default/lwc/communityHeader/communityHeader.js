@@ -11,24 +11,6 @@ export default class CommunityHeader extends NavigationMixin(LightningElement) {
         const currentUrl = window.location.pathname.toLowerCase();
         // Exclude /login and /SelfRegister
         this.isExcludedPage = currentUrl === '/portal/login' || currentUrl === '/portal/selfregister';
-
-        // Check if on home page (/portal)
-        if (currentUrl === '/portal') {
-            const userRole = sessionStorage.getItem('userRole');
-            const email = sessionStorage.getItem('loggedInEmail');
-            if (userRole && email) {
-                // Fire welcome event with user details
-                const welcomeEvent = new CustomEvent('welcome', {
-                    detail: {
-                        email: email,
-                        role: userRole
-                    },
-                    bubbles: true,
-                    composed: true
-                });
-                this.dispatchEvent(welcomeEvent);
-            }
-        }
     }
 
     navigateToHome(event) {
